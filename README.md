@@ -1,116 +1,146 @@
-# Drone Project - Solar Panel and Windmill Defect Detection System
+# Drone Defect Detector
 
-## Overview
-A comprehensive solution for automated defect detection in solar panels and windmills using drone technology. The system captures high-resolution images of infrastructure, analyzes them using computer vision and machine learning algorithms, and provides detailed reports about potential defects and maintenance recommendations.
-
-## Features
-- Real-time defect detection using drone-captured imagery
-- Support for both solar panel and windmill inspection
-- Automated defect classification and severity assessment
-- Detailed maintenance recommendations
-- Cross-platform mobile application for field inspections
-- Web-based dashboard for data visualization and management
-- Historical data tracking and trend analysis
-
-## Tech Stack
-
-### Backend
-- Python
-- FastAPI
-- TensorFlow/PyTorch for ML models
-- OpenCV for image processing
-- PostgreSQL for database
-- Redis for caching
-
-### Frontend
-- React.js
-- Material-UI
-- Chart.js for data visualization
-- Redux for state management
-
-### Mobile App
-- React Native
-- Expo
-- NativeWind for styling
-- React Navigation
-
-### Infrastructure
-- Docker for containerization
-- AWS/GCP for cloud deployment
-- GitHub Actions for CI/CD
+A comprehensive solution for detecting and analyzing defects in drones using image processing. Available as both a web application and a mobile app.
 
 ## Project Structure
+
 ```
-Drone/
-├── defect-detector/          # Main backend application
-│   ├── frontend/            # Web dashboard
-│   └── mobile-app/          # Mobile application
-├── defect-detector-mobile/  # Mobile application
-└── README.md
-```
-
-## Getting Started
-
-### Prerequisites
-- Python 3.8+
-- Node.js 16+
-- Docker
-- PostgreSQL
-- Redis
-
-### Installation
-
-1. Clone the repository:
-```bash
-git clone https://github.com/Aryan-saini1/Drone_project.git
-cd Drone_project
+defect-detector/
+├── backend/         # Node.js backend server
+├── frontend/        # React web application
+└── mobile-app/      # React Native mobile application
 ```
 
-2. Set up the backend:
-```bash
-cd defect-detector
-python -m venv .venv
-source .venv/bin/activate  # On Windows: .venv\Scripts\activate
-pip install -r requirements.txt
-```
+## Prerequisites
 
-3. Set up the frontend:
-```bash
-cd frontend
-npm install
-```
+- Node.js (v14 or higher)
+- npm (v6 or higher)
+- Expo CLI (`npm install -g expo-cli`)
+- Expo Go app on your mobile device
 
-4. Set up the mobile app:
-```bash
-cd ../mobile-app
-npm install
-```
+## Backend Setup
 
-### Running the Application
+1. Navigate to the backend directory:
+   ```bash
+   cd defect-detector/backend
+   ```
 
-1. Start the backend:
-```bash
-cd defect-detector
-uvicorn main:app --reload
-```
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-2. Start the frontend:
-```bash
-cd frontend
-npm start
-```
+3. Start the server:
+   ```bash
+   node server.js
+   ```
 
-3. Start the mobile app:
-```bash
-cd mobile-app
-npm start
-```
+The server will run on port 5001. You can verify it's running by visiting:
+- Health check: http://localhost:5001/api/health
+
+## Web Application Setup
+
+1. Navigate to the frontend directory:
+   ```bash
+   cd defect-detector/frontend
+   ```
+
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+3. Start the development server:
+   ```bash
+   npm start
+   ```
+
+The web application will be available at http://localhost:3000
+
+## Mobile App Setup (Expo)
+
+1. Navigate to the mobile app directory:
+   ```bash
+   cd defect-detector-mobile
+   ```
+
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+3. Start the Expo development server:
+   ```bash
+   npx expo start
+   ```
+
+4. Running on your device:
+   - Install the Expo Go app from your device's app store
+   - Make sure your phone and computer are on the same WiFi network
+   - Scan the QR code shown in the terminal with:
+     - iOS: Use the Camera app
+     - Android: Use the Expo Go app's QR scanner
+
+   Alternatively, you can run on simulators:
+   - iOS: Press 'i' in the terminal (requires Xcode)
+   - Android: Press 'a' in the terminal (requires Android Studio)
+
+## Features
+
+### Web Application
+- Upload drone images for defect analysis
+- Real-time defect detection
+- Detailed defect information including:
+  - Type of defect
+  - Location
+  - Severity
+  - Cause
+  - Recommended solutions
+  - Prevention measures
+
+### Mobile Application
+- Capture photos directly using device camera
+- Upload existing images from gallery
+- Real-time defect analysis
+- Comprehensive defect reports
+- User-friendly interface
+- Dark mode support
+
+## Troubleshooting
+
+### Mobile App
+1. If you see "Could not connect to server":
+   - Ensure the backend server is running
+   - Check if your phone and computer are on the same network
+   - Verify the API_URL in the mobile app matches your computer's IP address
+
+2. If images fail to upload:
+   - Check if the 'uploads' directory exists in the backend
+   - Ensure you have granted camera and photo library permissions
+
+### Web Application
+1. If the application fails to load:
+   - Check if the backend server is running
+   - Verify the API endpoint configuration
+
+## Development Notes
+
+- The backend uses port 5001
+- The web frontend uses port 3000
+- The mobile app connects to the backend using your local IP address
+- Both web and mobile versions share the same backend API
 
 ## Contributing
-Contributions are welcome! Please feel free to submit a Pull Request.
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
 ## License
-This project is licensed under the MIT License - see the LICENSE file for details.
+
+This project is licensed under the MIT License - see the LICENSE file for details
 
 ## Contact
 For any queries or support, please reach out to the project maintainers.
